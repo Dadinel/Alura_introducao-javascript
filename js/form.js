@@ -16,6 +16,15 @@ botaoAdicionar.addEventListener("click",function(event) {
         return;
     }
 
+    adicionaPacienteNaTabela(paciente);
+
+    form.reset();
+
+    var mensagensErro = document.querySelector("#mensagens-erro");
+    mensagensErro.innerHTML = "";
+});
+
+function adicionaPacienteNaTabela(paciente) {
     //Cria  a TR e a TD do paciente
     var pacienteTr = montaTr(paciente);
 
@@ -23,12 +32,7 @@ botaoAdicionar.addEventListener("click",function(event) {
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
-
-    form.reset();
-
-    var mensagensErro = document.querySelector("#mensagens-erro");
-    mensagensErro.innerHTML = "";
-});
+}
 
 function obtemPacienteDoFormulario(form) {
 
